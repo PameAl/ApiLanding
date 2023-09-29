@@ -1,0 +1,53 @@
+//creamos una variable
+@api = http://localhost:4000/alumnos
+
+
+GET {{api}}
+
+###
+POST {{api}}
+//aqui le decimos que mandamos un objeto json
+Content-Type: application/json
+
+{
+  "Nombre": "Martina",
+  "Apellido": "Luque",
+  "Num_Documento": "57582368",
+  "Sexo": "Femenino",
+  "Fecha_de_nacimiento": "1/02/2019",
+  "Lugar_nacimiento": "Calchin",
+  "Direccion": "Sarmiento Nº 1500",
+  "Localidad": "Villa del Rosario",
+  "Nombre_apellido_Padre": "Patricia Luque",
+  "Ocupacion": "Empleada",
+  "Telefono": "3573458230",
+  "Email": "patricialuque@gmail.com"
+}
+
+###
+GET {{api}}/6
+
+### 
+DELETE {{api}}/4
+
+###
+GET {{api}}/count
+
+###
+PUT {{api}}/3
+Content-Type: application/json
+
+{
+  "Nombre": "Julian",
+  "Apellido": "Díaz",
+  "Num_Documento": "59657301",
+  "Sexo": "Masculino",
+  "Fecha_de_nacimiento": "10/01/2020",
+  "Lugar_nacimiento": "Villa del Rosario",
+  "Direccion": "Independencia Nº 562",
+  "Localidad": "Villa del Rosario",
+  "Nombre_apellido_Padre": "Macarena Alvarez",
+  "Ocupacion": "Ama de Casa",
+  "Telefono": "4648498445",
+  "Email": "macarena13@gmail.com"
+}
