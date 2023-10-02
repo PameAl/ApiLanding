@@ -16,17 +16,14 @@ export const getAlumnos = async (req, res) => {
 
 export const createNewAlumnos = async (req, res) => {
     const {Nombre, Apellido, Num_Documento, Sexo, Fecha_de_nacimiento, Lugar_nacimiento, Direccion, Localidad, Nombre_apellido_Padre, Ocupacion, Telefono, Email } = req.body;
-    //let { Cantidad } = req.body;
 
-    function isNull(value) {
-        return value == null;    
-    }
+    //function isNull(value) {
+        //return value == null;    
+    //}
 
-    if(isNull(Nombre) || isNull(Apellido) || isNull(Num_Documento) || isNull(Sexo) || isNull(Fecha_de_nacimiento) || isNull(Lugar_nacimiento) || isNull(Direccion) || isNull(Localidad) || isNull(Nombre_apellido_Padre) || isNull(Ocupacion) || isNull(Telefono) || isNull(Email)) {
+    if( !Nombre || !Apellido || !Num_Documento || !Sexo || !Fecha_de_nacimiento || !Lugar_nacimiento || !Direccion || !Localidad || !Nombre_apellido_Padre || !Ocupacion || !Telefono || !Email) {
         return res.status(400).json({msg:'Importante! Llena todo los campos'})
     }
-
-    //if (Cantidad == null) Cantidad = 0;
 
     try{
         const pool = await getConnection();
