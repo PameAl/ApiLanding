@@ -21,7 +21,7 @@ export const createNewAlumnos = async (req, res) => {
         //return value == null;    
     //}
 
-    if( !Nombre || !Apellido || !Num_Documento || !Sexo || !Fecha_de_nacimiento || !Lugar_nacimiento || !Direccion || !Localidad || !Nombre_apellido_Padre || !Ocupacion || !Telefono || !Email) {
+    if( Nombre === null || Apellido === null || Num_Documento === null|| Sexo === null || Fecha_de_nacimiento === null || Lugar_nacimiento === null || Direccion === null|| Localidad === null || Nombre_apellido_Padre === null || Ocupacion === null || Telefono === null || Email === null) {
         return res.status(400).json({msg:'Importante! Llena todo los campos'})
     }
 
@@ -43,7 +43,7 @@ export const createNewAlumnos = async (req, res) => {
         .input("Email", sql.VarChar, Email)
         .query(querys.addNewAlumnos);
 
-        res.json({Nombre, Apellido, Num_Documento, Sexo, Fecha_de_nacimiento, Lugar_nacimiento, Direccion, Localidad, Nombre_apellido_Padre, Ocupacion, Telefono, Email});
+        res.status(201).json({Nombre, Apellido, Num_Documento, Sexo, Fecha_de_nacimiento, Lugar_nacimiento, Direccion, Localidad, Nombre_apellido_Padre, Ocupacion, Telefono, Email});
     } catch (error) {
         res.status(500);
         res.send(error.message)
