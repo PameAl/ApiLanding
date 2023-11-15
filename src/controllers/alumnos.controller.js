@@ -43,7 +43,7 @@ export const createNewAlumnos = async (req, res) => {
         .input("Email", sql.VarChar, Email)
         .query(querys.addNewAlumnos);
 
-        res.status(201).json({Nombre, Apellido, Num_Documento, Sexo, Fecha_de_nacimiento, Lugar_nacimiento, Direccion, Localidad, Nombre_apellido_Padre, Ocupacion, Telefono, Email});
+        res.status(201).json({ status: 201, message: 'Alumno creado exitosamente', data: { Nombre, Apellido, Num_Documento, Sexo, Fecha_de_nacimiento, Lugar_nacimiento, Direccion, Localidad, Nombre_apellido_Padre, Ocupacion, Telefono, Email } });
     } catch (error) {
         res.status(500);
         res.send(error.message)
